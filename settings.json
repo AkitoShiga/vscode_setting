@@ -1,0 +1,154 @@
+{
+    //========================================================================
+    // vscodeのeditorの設定
+    //========================================================================
+    "editor.fontSize": 16,                  //fontsize
+    "editor.renderLineHighlight": "all",    //現在の行番号含めて強調表示する
+    "editor.insertSpaces": true,            //tabをスペースとして扱う
+    "editor.renderWhitespace": "boundary",  //エディタ上での空白表示設定
+    "editor.renderControlCharacters": true, //制御文字の表示
+    "editor.cursorBlinking": "smooth",      //カーソルの点滅をヌルヌルにする
+    "editor.autoIndent": "full",            //autoindentを入れる
+    "editor.fontFamily": "Ligalex Mono", 
+    "extensions.autoUpdate": true,          //プラグインを自動アップデート
+    "files.autoGuessEncoding": true,        // 有効な場合、ファイルを開くときに文字セット エンコードを推測します。言語ごとに構成することも可能
+    "files.autoSave": "afterDelay",         // ファイルを自動保存
+    "files.autoSaveDelay": 30000,           // 30秒後
+    "files.eol": "auto",                    //既定の改行文字をautoにする
+  
+    /* VIM ノーマルモード */
+    "vim.normalModeKeyBindingsNonRecursive": [
+
+      //Surround
+      { "before": ["S"], "after": ["y", "s"] },
+
+      //easy motion
+      {
+        "before": ["s"],
+        "after": ["<Leader>", "<Leader>", "2", "s"]
+      },
+
+      //Multi-Cursor Mode
+      {
+        "before": ["<C-n>"],
+        "after": ["g", "b"] 
+      },
+      //上方向にカーソルを増やす
+      {
+        "before": ["<C-k>"],
+        "commands": [{ "command": "editor.action.insertCursorAbove" }]
+      },
+      // 下方向にカーソルを増やす
+      {
+        "before": ["<C-j>"],
+        "commands": [{ "command": "editor.action.insertCursorBelow" }]
+      },
+
+      // Undo Redo
+      {
+        "before": ["u"],
+        "commands": ["undo"]
+      },
+      {
+        "before": ["<C-r>"],
+        "commands": ["redo"]
+      },
+    ],
+
+    /* VIM インサートモード */
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["<C-[>"],
+        "after": ["<Esc>"]
+      },
+      {
+        "before":["<C-a>"],
+        "after": ["<C-o>", "^"]
+      },
+      {
+        "before":["<C-e>"],
+        "after": ["<C-o>", "$"]
+      },
+      {
+        "before":["<C-b>"],
+        "after": ["<Left>"]
+      },
+      {
+        "before":["<C-f>"],
+        "after": ["<Right>"]
+      },
+      {
+        "before":["<C-n>"],
+        "after": ["<Down>"]
+      },
+      {
+        "before":["<C-p>"],
+        "after": ["<Up>"]
+      },
+      {
+        "before":["<C-h>"],
+        "after": ["<Bs>"]
+      },
+      {
+        "before":["<C-d>"],
+        "after": ["<Del>"]
+      },
+      {
+        "before":["<C-k>"],
+        "after": ["<C-o>", "d", "$", "<Right>"]
+      },
+      {
+        "before":["<C-y>"],
+        "after": ["<C-o>", "p"]
+      },
+      {
+        "before":["<C-u>"],
+        "after": ["<C-o>", "d", "^"]
+      },
+      {
+        "before":["<C-w>"],
+        "after": ["<C-o>", "d", "b"]
+      },
+    ],
+
+    /* VIM ビジュアルモード */
+    "vim.visualModeKeyBindingsNonRecursive": [
+      
+      //Multi-Cursor Mode
+      //選択した文字に対して増やす
+      {
+        "before": ["<C-n>"], 
+        "after": ["g", "b"] 
+      },
+  
+      //行末尾にカーソルを出す
+      {
+        "before": ["<C-l>"],
+        "commands": [
+          { "command": "editor.action.insertCursorAtEndOfEachLineSelected" }
+        ]
+      },
+    ],
+
+    //surroundを有効にする
+    "javascript.updateImportsOnFileMove.enabled": "always",
+  
+  
+    /* VIM その他 */
+    "vim.highlightedyank.enable": true,   // yankした箇所をハイライト表示にする
+    "vim.highlightedyank.duration": 180,  // yankした時の色の表示時間
+    "vim.autoindent": true,               // autoindent
+    "vim.useSystemClipboard": true,       // system clipboardと同期する
+    "vim.hlsearch": true,                 // hlserch
+    "vim.visualstar": true,               // カーソル上にあるワードを"*"で検索
+    "vim.useCtrlKeys": true,              // 諸々のctrlキーを使った操作が有効になる
+    "vim.debug.silent": true,             // アラートを出さない
+  
+    // vim plugin有効化
+    "vim.easymotion": true,
+    "vim.surround": true,
+  
+    //easy motion
+    "vim.easymotionMarkerForegroundColorOneChar": "rgba(0,240,170,0.9)", //一文字目の色
+    "vim.easymotionKeys": "asdfhjklwqeruioopghty;",                      //マーカーに使用される文字列
+  }
